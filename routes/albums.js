@@ -28,17 +28,32 @@ router.get('/albums/:id', function(req, res, next) {
   });
 });
 
-router.get('/albums/:id/edit', function(req, res, next) {
-  var id = req.params.id;
-  Albums().where({id: id}).first().then(function (record) {
-    res.render('albums/edit', {theAlbum: record});
+router.get('/albums/:id/update', function(req, res, next) {
+  Albums().where({id: req.params.id}).first().then(function (record) {
+    res.render('albums/update', {theAlbum: record});
   });
 });
 
-// router.get('/albums/:id/edit', function(req, res, next) {
+router.put('/albums/:id/update', function(req, res, next) {
+  Albums().select().where({id: req.params.id}).update({
+    artist: req.body.album_artist,
+    name: req.body.album_name,
+    genre: req.body.album_genre,
+    stars: req.body.album_stars,
+    explicit: req.body.album_explicit
+  }).then(function () {
+    res.redirect('/albums');
+  });
+});
+
+// router.delete('/albums/:id', function(req, res, next) {
+//
+// });
+
+// router.get('/albums/:id/update', function(req, res, next) {
 //   Albums().select().where({id: req.params.id}).then(function (data) {
 //     console.log(data);
-//     res.render('albums/edit', {theAlbum: record});
+//     res.render('albums/update', {theAlbum: record});
 //     res.redirect('/albums/show');
 //   });
 // });
