@@ -5,8 +5,32 @@ block content
 
   form(action="/albums", method="post")
     div
-      Name
-      input(type="text" name="album_name")
+      div Artist
+        input(type="text" name="album_artist")
+
+      div Album Name
+        input(type="text" name="album_name")
+
+      div
+        label Genre
+          select(type="select" name="album_genre")
+            option jazz
+            option classical
+
+      div
+        label Stars
+          br
+          span 1
+          input(type="radio" name="album_stars" value=1)
+          input(type="radio" name="album_stars" value=2)
+          input(type="radio" name="album_stars" value=3)
+          input(type="radio" name="album_stars" value=4)
+          input(type="radio" name="album_stars" value=5)
+          span  5
+
+      div
+          input(type="checkbox" name="album_explicit")
+          span Contains Explicit Lyrics
 
     div
       input(type="submit")

@@ -7,7 +7,9 @@ function Albums() {
 }
 
 router.get('/albums', function(req, res, next) {
-  res.render('albums/index');
+  Albums().select().then(function (records) {
+    res.render('albums/index', {allAlbums: records});
+  });
 });
 
 router.get('/albums/new', function(req, res, next) {
@@ -15,8 +17,14 @@ router.get('/albums/new', function(req, res, next) {
 });
 
 router.post('/albums', function(req, res, next) {
-  Albums().insert({ name: req.body.album_name }).then(function () {
+  Albums().insert({ artist: req.body.album_artist, name: req.body.album_name, genre: req.body.album_genre, stars: req.body.album_stars, explicit: req.body.album_explicit }).then(function () {
     res.redirect('/albums');
+  });
+});
+
+router.get('/albums/:id', function(req, res, next) {
+  Albums().where({id: req.params.id}).first().then(function (record) {
+    res.render('albums/show', {theAlbum: record});
   });
 });
 
