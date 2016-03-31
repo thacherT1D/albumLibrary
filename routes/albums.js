@@ -28,4 +28,19 @@ router.get('/albums/:id', function(req, res, next) {
   });
 });
 
+router.get('/albums/:id/edit', function(req, res, next) {
+  var id = req.params.id;
+  Albums().where({id: id}).first().then(function (record) {
+    res.render('albums/edit', {theAlbum: record});
+  });
+});
+
+// router.get('/albums/:id/edit', function(req, res, next) {
+//   Albums().select().where({id: req.params.id}).then(function (data) {
+//     console.log(data);
+//     res.render('albums/edit', {theAlbum: record});
+//     res.redirect('/albums/show');
+//   });
+// });
+
 module.exports = router;
