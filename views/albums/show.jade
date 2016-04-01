@@ -4,7 +4,7 @@ block content
   h1= theAlbum.name
 
   a(href="/albums/" + theAlbum.id + '/update') Edit
-  
-<!--
-a(href = )
-form(action='/albums/' + theAlbum.id + '/update?_method=put' method="post") -->
+
+  form(action='/albums/' + theAlbum.id + '?_method=delete' method="POST")
+    div
+      button(type="submit" value="Delete") Delete
