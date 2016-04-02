@@ -60,16 +60,4 @@ router.put('/albums/:id/update', function(req, res, next) {
   });
 });
 
-// router.delete('/albums/:id', function(req, res, next) {
-//
-// });
-
-// router.get('/albums/:id/update', function(req, res, next) {
-//   Albums().select().where({id: req.params.id}).then(function (data) {
-//     console.log(data);
-//     res.render('albums/update', {theAlbum: record});
-//     res.redirect('/albums/show');
-//   });
-// });
-
 module.exports = router;
