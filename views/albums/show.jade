@@ -2,9 +2,12 @@ extends ../layout
 
 block content
   h1= theAlbum.name
-
-  a(href="/albums/" + theAlbum.id + '/update') Edit
+  h2= theAlbum.artist
+  p= 'Genre: ' + theAlbum.genre
+  p= 'Rating: ' + theAlbum.stars + ' stars'
 
   form(action='/albums/' + theAlbum.id + '?_method=delete' method="POST")
+    div
+      a(href="/albums/" + theAlbum.id + '/update') Edit
     div
       button(type="submit" value="Delete") Delete

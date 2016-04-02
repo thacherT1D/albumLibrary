@@ -43,7 +43,7 @@ router.get('/albums/:id/update', function(req, res, next) {
 });
 
 router.delete('/albums/:id', function(req, res, next) {
-  albums().del().where({id: req.params.id}).first().then(function () {
+  albums().del().where({id: req.params.id}).then(function () {
     res.redirect('/albums');
   });
 });
