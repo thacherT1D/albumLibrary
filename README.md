@@ -229,6 +229,16 @@ participant Express
 participant PostgreSQL
 
 # put your code here
+
+participant Browser
+participant Express
+participant PostgreSQL
+
+Browser -> Express: album, artist, genre, rating, expl.
+Express -> PostgreSQL: data
+note right of PostgreSQL: adds data
+PostgreSQL -> Express: full table
+Express -> Browser: selected album/full catalog
 ```
 
 Embed your image here.
@@ -335,6 +345,23 @@ participant Express
 participant PostreSQL
 
 # put your code here
+
+participant Browser
+participant Express
+participant PostgreSQL
+
+Browser -> Express: request for album
+Express -> PostgreSQL: request for album data
+note right of PostgreSQL: adds data
+PostgreSQL -> Express: sends album data
+Express -> Browser: displays album data
+note left of Browser: updates information
+Browser -> Express: updated information
+Express -> PostgreSQL: sends new album info
+note right of PostgreSQL: updates album
+PostgreSQL -> Express: returns updated album
+Express -> Browser: displays updated album
+
 ```
 
 Paste your image here.
