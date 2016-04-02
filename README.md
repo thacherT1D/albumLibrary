@@ -242,6 +242,7 @@ Express -> Browser: selected album/full catalog
 ```
 
 Embed your image here.
+https://github.com/thacherT1D/expressproject/blob/master/SequenceDiagram1.png
 
 ---
 
@@ -365,7 +366,7 @@ Express -> Browser: displays updated album
 ```
 
 Paste your image here.
-
+https://github.com/thacherT1D/expressproject/blob/master/SequenceDiagram2.png
 ---
 
 
