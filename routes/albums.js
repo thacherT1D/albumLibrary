@@ -28,7 +28,6 @@ router.post('/albums', function(req, res, next) {
   });
 });
 
-
 router.get('/albums/:id', function(req, res, next) {
   albums().where({id: req.params.id}).first().then(function (record) {
     console.log(record);
